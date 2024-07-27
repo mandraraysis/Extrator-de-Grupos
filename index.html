@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Extrator de Grupos de WhatsApp - Cole o texto copiado e extraia os links de grupos do WhatsApp automaticamente.">
+    <meta name="keywords" content="WhatsApp, grupos, links de grupos, extrator de links, JavaScript, Bootstrap">
+    <meta name="author" content="Seu Nome">
+    <title>Extrator de Grupos de WhatsApp</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <header class="text-center">
+        <div class="container">
+            <h2>Extrator de Grupos de WhatsApp</h2>
+            <button class="btn btn-secondary" onclick="toggleTheme()">Alternar Tema</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#infoModal">Como Funciona</button>
+        </div>
+    </header>
+    <section id="about" class="text-center">
+        <div class="container">
+            <h2>Cole o Texto Copiado</h2>
+            <div class="d-flex align-items-center mb-3">
+                <textarea id="entrada" class="form-control mr-2" style="width: calc(100% - 100px); min-height:200px;" aria-label="Área de texto para colar conteúdo copiado"></textarea>
+                <button class="btn btn-primary" onclick="colarTexto()">Colar</button>
+            </div>
+            <button class="btn-extract" onclick="submeteHTML()">EXTRAIR LINKS DE GRUPOS</button>
+            <button class="btn btn-secondary" onclick="limparTudo()">Limpar Tudo</button>
+            <h3 class="mt-4">LINKS EXTRAÍDOS ⤵️⤵️⤵️</h3>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="output my-3">
+                        <textarea id="saida" class="form-control mb-3" style="width:100%; min-height:200px;" readonly aria-label="Área de texto para links extraídos"></textarea>
+                        <div id="saidaLink" class="mt-3"></div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-end justify-content-end">
+                    <button class="btn btn-primary" onclick="copiarTexto()">Copiar</button>
+                </div>
+            </div>
+            <div id="feedback" class="mt-2 hidden">Texto copiado!</div>
+            <div id="loading" class="hidden mt-2">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Carregando...</span>
+                </div>
+                <p>Extraindo links, por favor aguarde...</p>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Informações sobre o site</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Funcionalidades do site:</strong></p>
+                    <ul>
+                        <li>Extrair links de grupos do WhatsApp a partir de um texto copiado.</li>
+                        <li>Remover links duplicados automaticamente.</li>
+                        <li>Copiar os links extraídos para a área de transferência.</li>
+                        <li>Alternar entre tema claro e escuro para uma melhor experiência visual.</li>
+                    </ul>
+                    <p><strong>Como usar:</strong></p>
+                    <ol>
+                        <li>Copie o texto que contém os links de grupos do WhatsApp.</li>
+                        <li>Clique no botão "Colar" para colar o texto na área de entrada.</li>
+                        <li>Clique no botão "EXTRAIR LINKS DE GRUPOS" para extrair os links.</li>
+                        <li>Os links extraídos aparecerão na área de saída.</li>
+                        <li>Use o botão "Copiar" para copiar os links extraídos para a área de transferência.</li>
+                        <li>Use o botão "Limpar Tudo" para limpar todas as áreas de texto.</li>
+                        <li>Clique no botão "Alternar Tema" para mudar entre o tema claro e escuro.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js" defer></script>
+</body>
+</html>
